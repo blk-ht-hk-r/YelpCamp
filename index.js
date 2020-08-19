@@ -66,9 +66,13 @@ app.use("/campgrounds/:id/comments" , commentRoutes);
 
 
 
-
+//configuring the port settings for heroku hosting
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
 
 //Start the server
-app.listen(3000 , () => {
+app.listen(port , () => {
 	console.log("Server has started on port 3000!");
 });
